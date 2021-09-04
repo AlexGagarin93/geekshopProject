@@ -7,3 +7,23 @@ def index (request):
 
 def products(request):
     return render(request, 'products.html')
+
+def test(request):
+    context = {
+        'title': 'geekshop',
+        'user': 'Ivanov',
+        'description': 'Добро пожаловать в geekshop',
+        'products': [
+            {'name': 'Худи черного цвета с монограммами adidas Originals', 'price': '6 090,00 '},
+            {'name': 'Синяя куртка The North Face', 'price': '23 725,00'},
+            {'name': 'Коричневый спортивный oversized-топ ASOS DESIGN', 'price': '3 390,00 '},
+        ],
+        'promotion':True,
+        'products_of_promotion': [
+            {'name': 'Худи черного цвета с монограммами adidas Originals', 'price': '6 090,00 '},
+            {'name': 'Синяя куртка The North Face', 'price': '23 725,00'}
+        ]
+        }
+
+    return render(request, 'test.html',context)
+
