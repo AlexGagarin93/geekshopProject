@@ -4,6 +4,8 @@ from django import forms
 from users.models import User
 
 
+
+
 class UserLoginForm(AuthenticationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control py-4',
                                                              'placeholder': 'Введите имя пользователя'}))
@@ -46,3 +48,9 @@ class UserProfileForm(UserChangeForm):
     class Meta:
         model = User
         fields = ('username', 'email', 'first_name', 'last_name', 'image')
+
+    def clean_image(self):
+        data = self.cleaned_data['image']
+        if data.size > 1024:
+            raise forms.ValidationError('Слишком большой файл!')
+        return data

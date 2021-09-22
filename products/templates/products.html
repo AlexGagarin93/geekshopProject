@@ -16,12 +16,13 @@
 
             <h1 class="my-4">GeekShop</h1>
             <div class="list-group">
+
                {% for category in categories %}
                     <a href="#" class="list-group-item">{{ category.name }}</a>
-<!--                <a href="#" class="list-group-item">Одежда</a>-->
-<!--                <a href="#" class="list-group-item">Обувь</a>-->
-<!--                <a href="#" class="list-group-item">Аксессуары</a>-->
-<!--                <a href="#" class="list-group-item">Подарки</a>-->
+<!--&lt;!&ndash;                <a href="#" class="list-group-item">Одежда</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                <a href="#" class="list-group-item">Обувь</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                <a href="#" class="list-group-item">Аксессуары</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                <a href="#" class="list-group-item">Подарки</a>&ndash;&gt;-->
                 {% endfor %}
             </div>
 
@@ -76,7 +77,7 @@
                             <p class="card-text">{{ product.description }}.</p>
                         </div>
                         <div class="card-footer text-center">
-                            <button type="button" class="btn btn-outline-success">Отправить в корзину</button>
+                            <a href="{% url 'baskets:baskets_add' product.id %}" class="btn btn-outline-success">Отправить в корзину</a>
                         </div>
                     </div>
                 </div>
