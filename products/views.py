@@ -43,4 +43,3 @@ def test(request):
         }
 
     return render(request, 'test.html',context)
-

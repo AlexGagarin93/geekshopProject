@@ -4,7 +4,7 @@ from products.models import Product
 from baskets.models import Basket
 # Create your views here.
 
-def basket_add(request,id):
+def baskets_add(request,id):
     product = Product.objects.get(id=id)
     baskets = Basket.objects.filter(user=request.user,product=product)
     if not baskets.exists():
